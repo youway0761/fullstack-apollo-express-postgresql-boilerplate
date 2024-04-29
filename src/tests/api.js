@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const API_URL = 'http://localhost:8000/graphql';
 
 export const signIn = async variables =>
@@ -30,10 +30,10 @@ export const me = async token =>
     },
     token
       ? {
-          headers: {
-            'x-token': token,
-          },
-        }
+        headers: {
+          'x-token': token,
+        },
+      }
       : null,
   );
 
@@ -101,10 +101,10 @@ export const updateUser = async (variables, token) =>
     },
     token
       ? {
-          headers: {
-            'x-token': token,
-          },
-        }
+        headers: {
+          'x-token': token,
+        },
+      }
       : null,
   );
 
@@ -121,9 +121,9 @@ export const deleteUser = async (variables, token) =>
     },
     token
       ? {
-          headers: {
-            'x-token': token,
-          },
-        }
+        headers: {
+          'x-token': token,
+        },
+      }
       : null,
   );
